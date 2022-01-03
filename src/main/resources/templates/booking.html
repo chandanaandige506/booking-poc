@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Booking</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous" />
+<style type="text/css">
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: Raleway, sans-serif;
+}
+
+body {
+	background: linear-gradient(90deg, #c7c5f4, #776bcc);
+}
+
+.container {
+	
+}
+
+.nav {
+	background: linear-gradient(90deg, #776bcc, #c7c5f4);
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Book Doctor</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Bookings</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div>
+			<div class="card">
+				<div class="card-header">Booking</div>
+				<div class="card-body">
+					<form class="login" th:action="@{/book}" method="post"
+						th:object="${booking}">
+						<h3>Sign Up</h3>
+						<div class="login__field">
+							<i class="login__icon fas fa-user"></i> <select
+								name="doctor">
+								<option th:each="doctor : ${doctors}" th:value="${doctor.id}"
+									th:text="${doctor.firstName}">Thymus Thymi</option>
+							</select>
+						</div>
+						<div class="login__field">
+							<i class="login__icon fas fa-lock"></i> <input type="password"
+								class="login__input" placeholder="Password" name="password">
+						</div>
+						<div class="login__field">
+							<i class="login__icon fas fa-user"></i> <input type="text"
+								class="login__input" placeholder="First name" name="firstName">
+						</div>
+						<div class="login__field">
+							<i class="login__icon fas fa-user"></i> <input type="text"
+								class="login__input" placeholder="last Name" name="lastName">
+						</div>
+						<button class="button login__submit">
+							<span class="button__text">Sign up</span> <i
+								class="button__icon fas fa-chevron-right"></i>
+						</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
